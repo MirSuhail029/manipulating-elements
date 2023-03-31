@@ -39,11 +39,11 @@ body {
   padding-left: 3%;
 }
 .dropdown-items:hover {
-  background-color: blue;
+  background-color: rgba(255, 140, 0, 50%);
 }
 .hidden {
   display: none;
 }
 .selected {
-  background-color: blueviolet;
+  background-color: darkorange;
 }

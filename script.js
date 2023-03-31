@@ -24,16 +24,27 @@ const hideDropdownList = function () {
   this.lastChild.setAttribute("class", "hidden");
 };
 
+const selectedItem = function () {
+  const menuContainerItems = menuContainer.childNodes;
+  for (let i = 0; i < menuContainerItems.length; i++) {
+    menuContainerItems[i].setAttribute("class", "menu-item");
+  }
+  this.setAttribute("class", "menu-item selected");
+};
+
 const createMenuItems = function (menu, dropDown = []) {
   const menuItem = document.createElement("li");
-  menuItem.setAttribute("class", "menu-item");
+  menuItem.addEventListener("click", selectedItem);
   menuItem.textContent = menu;
   const id = menu.toLowerCase().replaceAll(" ", "-");
   menuItem.setAttribute("id", id); // ID Home=home,Products=products, Services=services & Contact Us=contact-us
-
+  if (id === "home") {
+    menuItem.setAttribute("class", "menu-item selected");
+  } else {
+    menuItem.setAttribute("class", "menu-item");
+  }
   if (dropDown.length !== 0) {
     menuItem.append(createDropdownMenu(dropDown));
-    // console.log(menuItem);
     menuItem.lastChild.setAttribute("class", "hidden");
     menuItem.addEventListener("mouseover", showDropdownList);
     menuItem.addEventListener("mouseout", hideDropdownList);
