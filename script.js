@@ -67,3 +67,29 @@ createMenuItems("Services", [
   "Networking",
 ]);
 createMenuItems("Contact us");
+
+const heroSection = document.getElementById("hero-section");
+const heroImagePath = "assets/hero image.jpg";
+const heroImage = document.createElement("img");
+heroImage.setAttribute("src", heroImagePath);
+heroImage.setAttribute("class", "hero-image");
+heroSection.append(heroImage);
+
+const aboutusSection = document.getElementById("aboutus-section");
+const message = document.createElement("p");
+const messages = [
+  "Welcome to our Store!!!",
+  "We offer a 10% discount sitewide on all festivals",
+  "Happy to serve you!!!",
+];
+aboutusSection.append(message);
+message.textContent = messages[0];
+let i = 1;
+setInterval(function () {
+  console.log(i);
+  message.textContent = messages[i];
+  i++;
+  if (i > messages.length - 1) {
+    i = 0;
+  }
+}, 2500);

@@ -17,9 +17,7 @@ body {
 .menu-item {
   font-size: 1.2rem;
   list-style: none;
-  /* padding-left: 2%; */
   padding-right: 2%;
-  /* text-align: center; */
   position: relative;
 }
 .menu-item:hover {
@@ -33,17 +31,32 @@ body {
   width: 130px;
 }
 .dropdown-items {
-  background-color: cadetblue;
+  background-color: rgb(255, 255, 255, 80%);
+  color: black;
   font-size: 1.2rem;
   list-style: none;
   padding-left: 3%;
 }
 .dropdown-items:hover {
-  background-color: rgba(255, 140, 0, 50%);
+  background-color: rgba(255, 140, 0, 70%);
 }
 .hidden {
   display: none;
 }
 .selected {
   background-color: darkorange;
+}
+
+.hero-image {
+  width: 100%;
+}
+#aboutus-section {
+  background-color: purple;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+#aboutus-section p {
+  text-align: center;
+  font-size: 3.5vw;
+  color: gold;
 }
