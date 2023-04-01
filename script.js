@@ -92,4 +92,23 @@ setInterval(function () {
   if (i > messages.length - 1) {
     i = 0;
   }
-}, 2500);
+}, 3000);
+
+// Featured section
+const featuredSection = document.getElementById("featured-section");
+const createFeaturedCards = function (imagePath, text) {
+  const featuredCard = document.createElement("article");
+  featuredCard.setAttribute("class", "featured-card");
+  const imageContainer = document.createElement("figure");
+  const cardImage = document.createElement("img");
+  cardImage.setAttribute("src", imagePath);
+  imageContainer.append(cardImage);
+  const cardText = document.createElement("p");
+  cardText.textContent = text;
+  featuredCard.append(imageContainer);
+  featuredCard.append(cardText);
+  featuredSection.append(featuredCard);
+};
+createFeaturedCards("assets/shirt 1.jpg", "884 Rs");
+createFeaturedCards("assets/shirt 2.jpg", "1199 Rs");
+createFeaturedCards("assets/shirt 3.jpg", "946 Rs");
