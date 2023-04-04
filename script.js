@@ -147,18 +147,18 @@ const change = function () {
   const [source1, price1] = productMap.get(productArray[j]);
   one.firstChild.firstChild.src = source1;
   one.lastChild.textContent = price1;
-  const [source2, price2] = productMap.get(productArray[j + 1]);
+  const [source2, price2] = productMap.get(productArray[(j + 1) % 6]);
   two.firstChild.firstChild.src = source2;
   two.lastChild.textContent = price2;
-  const [source3, price3] = productMap.get(productArray[j + 2]);
+  const [source3, price3] = productMap.get(productArray[(j + 2) % 6]);
   three.firstChild.firstChild.src = source3;
   three.lastChild.textContent = price3;
-  const [source4, price4] = productMap.get(productArray[j + 3]);
+  const [source4, price4] = productMap.get(productArray[(j + 3) % 6]);
   four.firstChild.firstChild.src = source4;
-  console.log(j + 3);
   four.lastChild.textContent = price4;
+  console.log(`${j} ${(j + 1) % 6} ${(j + 2) % 6} ${(j + 3) % 6}`);
   j++;
-  if (j > productArray.length - 4) {
+  if (j > productArray.length - 1) {
     j = 0;
   }
 };
