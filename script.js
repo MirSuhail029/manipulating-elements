@@ -96,9 +96,8 @@ setInterval(function () {
 
 // Featured section
 const featuredSection = document.getElementById("featured-section");
-const createFeaturedCards = function (cardValue) {
+const createFeaturedCards = function () {
   const featuredCard = document.createElement("article");
-  // featuredCard.setAttribute("id", cardValue);
   featuredCard.setAttribute("class", "featured-card");
   const imageContainer = document.createElement("figure");
   const cardImage = document.createElement("img");
@@ -124,13 +123,13 @@ productMap.set("shorts 1", ["assets/shorts 1.jpg", "1400 Rs"]);
 const productArray = [...productMap.keys()];
 // console.log(productArray.length);
 const [source1, price1] = productMap.get(productArray[0]);
-createFeaturedCards("card1");
+createFeaturedCards();
 const [source2, price2] = productMap.get(productArray[1]);
-createFeaturedCards("card2");
+createFeaturedCards();
 const [source3, price3] = productMap.get(productArray[2]);
-createFeaturedCards("card3");
+createFeaturedCards();
 const [source4, price4] = productMap.get(productArray[3]);
-createFeaturedCards("card4");
+createFeaturedCards();
 
 const [one, two, three, four] = [...featuredSection.childNodes];
 one.firstChild.firstChild.src = source1;
@@ -156,10 +155,64 @@ const change = function () {
   const [source4, price4] = productMap.get(productArray[(j + 3) % 6]);
   four.firstChild.firstChild.src = source4;
   four.lastChild.textContent = price4;
-  console.log(`${j} ${(j + 1) % 6} ${(j + 2) % 6} ${(j + 3) % 6}`);
+  // console.log(`${j} ${(j + 1) % 6} ${(j + 2) % 6} ${(j + 3) % 6}`);
   j++;
   if (j > productArray.length - 1) {
     j = 0;
   }
 };
 setInterval(change, 3000);
+
+// Featured section array manipulation
+const arrayFeaturedSection = document.getElementById("array-featured-section");
+const createFeaturedCards2 = function () {
+  const featuredCard = document.createElement("article");
+  featuredCard.setAttribute("class", "featured-card");
+  const imageContainer = document.createElement("figure");
+  const cardImage = document.createElement("img");
+  imageContainer.append(cardImage);
+  const cardText = document.createElement("p");
+  featuredCard.append(imageContainer);
+  featuredCard.append(cardText);
+  arrayFeaturedSection.append(featuredCard);
+};
+createFeaturedCards2();
+createFeaturedCards2();
+createFeaturedCards2();
+createFeaturedCards2();
+const itemMap = new Map();
+itemMap.set("shirt 1", ["assets/shirt 1.jpg", "884 Rs"]);
+itemMap.set("shirt 2", ["assets/shirt 2.jpg", "1199 Rs"]);
+itemMap.set("shirt 3", ["assets/shirt 3.jpg", "946 Rs"]);
+itemMap.set("shoes 1", ["assets/shoes 1.jpg", "1240 Rs"]);
+itemMap.set("shoes 2", ["assets/shoes 2.jpg", "1399 Rs"]);
+itemMap.set("shorts 1", ["assets/shorts 1.jpg", "1400 Rs"]);
+
+const itemArray = [...itemMap.keys()];
+
+const [cero, uno, dos, tres] = arrayFeaturedSection.childNodes;
+cero.firstChild.firstChild.src = source1;
+cero.lastChild.textContent = price1;
+uno.firstChild.firstChild.src = source2;
+uno.lastChild.textContent = price2;
+dos.firstChild.firstChild.src = source3;
+dos.lastChild.textContent = price3;
+tres.firstChild.firstChild.src = source4;
+tres.lastChild.textContent = price4;
+const traverse = function () {
+  const [source1, price1] = itemMap.get(itemArray[1]);
+  cero.firstChild.firstChild.src = source1;
+  cero.lastChild.textContent = price1;
+  const [source2, price2] = itemMap.get(itemArray[2]);
+  uno.firstChild.firstChild.src = source2;
+  uno.lastChild.textContent = price2;
+  const [source3, price3] = itemMap.get(itemArray[3]);
+  dos.firstChild.firstChild.src = source3;
+  dos.lastChild.textContent = price3;
+  const [source4, price4] = itemMap.get(itemArray[4]);
+  tres.firstChild.firstChild.src = source4;
+  tres.lastChild.textContent = price4;
+  itemArray.push(itemArray.shift());
+};
+
+setInterval(traverse, 3000);

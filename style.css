@@ -63,7 +63,8 @@ body {
 }
 
 /* Featured Section*/
-#featured-section {
+#featured-section,
+#array-featured-section {
   /* background-color: purple; */
   display: flex;
   justify-content: space-between;
